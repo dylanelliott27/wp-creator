@@ -46,6 +46,8 @@
             throw new Error("Database " . $siteName . " already exists.");
         }
 
+        $mysqli->query("create database $siteName");// todo error checking
+
         $mysqli->close();
 
         // too lazy to write function to copy whole directories and subdirectories in php right now
@@ -58,21 +60,30 @@
 
         copy("C:\\wpcreator\\files\\wp-config.php", $installationDir . "\\wp-config.php");
 
-    /*$mydir = 'C:/wamp64/www/wp';
-    $siteurl = 'http://localhost/wp';
+        //file_put_contents($installationDir . "\\wp-config.php", "define( 'DB_NAME', '$siteName' );", FILE_APPEND);
+
+        $content = file_get_contents($installationDir . "\\wp-config.php");
+        $newContent = str_replace("define( 'DB_NAME', 'testdb' );", "define( 'DB_NAME', '$siteName' );", $content);
+        file_put_contents($installationDir . "\\wp-config.php", $newContent);
+
+
+
+    $siteurl = "http://localhost/$siteName";
+
+
     define( 'WP_INSTALLING', true );
-    require_once $mydir . '/wp-load.php';
+    require_once $installationDir . '/wp-load.php';
     
 
-    require_once $mydir . '/wp-admin/includes/upgrade.php';
+    require_once $installationDir . '/wp-admin/includes/upgrade.php';
 
-    require_once $mydir . '/wp-admin/includes/translation-install.php';
+    require_once $installationDir . '/wp-admin/includes/translation-install.php';
     
-    require_once $mydir . '/wp-admin/install.php';
+    require_once $installationDir . '/wp-admin/install.php';
 
-    require_once $mydir . '/wp-includes/wp-db.php';
+    require_once $installationDir . '/wp-includes/wp-db.php';
     
-    $result = wp_install('test-blog', 'admin', 'dylanelliott27@hotmail.com', true);
+    $result = wp_install($siteName, 'admin', 'dylanelliott27@hotmail.com', true);
     
     
     update_option( 'siteurl', $siteurl );
@@ -82,4 +93,3 @@
     var_dump( $result );
     echo 'done';
 
-exit; */
