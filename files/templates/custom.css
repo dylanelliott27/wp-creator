@@ -1,0 +1,133 @@
+*{
+    font-family: 'open sans' !important;
+}
+
+
+.btn{
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: white;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);    
+    padding: 12px 24px;
+    background-color: blue;
+    border: none;
+}
+
+.rounded{
+    border-radius: 3px !important;
+}
+
+h1{
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+h2{
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+h3{
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+
+/* ---- bootstrap navbar ---- */
+/* show mobile logo only on smaller screens */
+.mobile-logo{
+    display: none;
+}
+.desktop-logo{
+    display: block;
+}
+
+.nav-item{  
+    /* center text on mobile nav dropdown */
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.nav-item > a{
+    color: white !important;
+}
+nav{
+    background-color: #f12459 !important;
+}
+.navbar-brand{
+    color: white !important;
+    margin: 0;
+}
+
+@media only screen and (max-width: 991px) {
+    .mobile-logo{
+        display: block;
+    }
+    .desktop-logo{
+        display: none;
+    }
+    .nav-item{  
+        /* center text on mobile nav dropdown */
+        text-align: center;
+    }
+  }
+
+  .navbar-toggler{
+      border: none;
+  }
+
+
+  .bg-blue{
+      background-color: #444bf8 !important;
+  }
+
+  .bg-green{
+      background-color: #00c9a6 !important;
+  }
+
+  .bg-red{
+      background-color: #f12459 !important;
+  }
+
+  .social-icons{
+      text-align: center;
+  }
+
+  /* -- fb icons --- */
+
+  .iconify{
+      color: white;
+      font-size: 22px;
+  }
+
+
+
+
+
+
+
+
+
+ /* ---- heros ---- */
+.hero{
+    background-color: #444bf8 !important;
+    height: 50vh;
+    color: white;
+    
+}
+
+
+
+.triangular > div{
+    position: absolute;
+    height: 90px; width: 55%;
+}
+.triangular{
+    position: relative;
+    overflow: hidden;
+    height: 90px;
+    margin-top: -80px;
+}
+
