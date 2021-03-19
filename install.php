@@ -38,7 +38,7 @@
         }
     }
 
-        $mysqli = new mysqli("localhost:3308","root",""); // todo -- error checking
+        $mysqli = new mysqli("localhost:3308","root","");
 
         $dbExists = $mysqli -> select_db($siteName);
 
@@ -46,11 +46,11 @@
             throw new Error("Database " . $siteName . " already exists.");
         }
 
-        $mysqli->query("create database $siteName");// todo error checking
+        $mysqli->query("create database $siteName");
 
         $mysqli->close();
 
-        // too lazy to write function to copy whole directories and subdirectories in php right now
+        // too lazy to write function to copy whole directories in php right now
         exec("Xcopy /E /I C:\\wpcreator\\files\\wordpress C:\\wamp64\\www\\$siteName", $result);
 
         $installationDir = "C:\\wamp64\\www\\$siteName";
